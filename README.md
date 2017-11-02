@@ -98,14 +98,14 @@ Scan this code with your HomeKit App on your iOS device to pair with Homebridge:
 
 1. Pop open your phone and look for an available acessory in Homekit. You will likely have to tap on "Don't Have a Code or Can't Scan?" and enter the number manually.
 
-![Homekit - Add accessory](img/IMG_0154.png)
-![Homekit - Nearby devices](img/IMG_0155.png)
+![Homekit - Add accessory](img/IMG_0154.PNG)
+![Homekit - Nearby devices](img/IMG_0155.PNG)
 
 1. Add your accessory by entering the passcode displayed earlier.
 
-![Homekit - After passcode](img/IMG_0157.png)
-![Homekit - Completed](img/IMG_0158.png)
+![Homekit - After passcode](img/IMG_0157.PNG)
+![Homekit - Completed](img/IMG_0158.PNG)
 
 1. Congrats! All your Wemo devices should show up now. Enjoy using Siri with your Wemo devices.
 
-![Homekit - Success](img/IMG_0153.png)
+![Homekit - Success](img/IMG_0153.PNG)
