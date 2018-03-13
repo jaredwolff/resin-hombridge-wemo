@@ -57,6 +57,8 @@ PING resin.local (192.168.7.45): 56 data bytes
 
 1. Modify the `config.json` file to your liking. Highly suggest changing the pin to something different as this is the one that Homebridge uses in their examples.
 
+1. Also, feel free to modify the Dockerfile to match your needs. In this example the only thing that you may want to change is the image name. By default I have `hummingboard-node:latest` as the main image. More info about what’s available go [here](https://docs.resin.io/runtime/resin-base-images/).
+
 1. You can now push the included Homebridge Docker file and associated files directly to your embedded device.
 
 ```
