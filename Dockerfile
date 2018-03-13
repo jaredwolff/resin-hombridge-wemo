@@ -2,7 +2,7 @@
 # see more about dockerfile templates here: http://docs.resin.io/deployment/docker-templates/
 # and about resin base images here: http://docs.resin.io/runtime/resin-base-images/
 # Note the node:slim image doesn't have node-gyp
-FROM resin/hummingboard-node:latest
+FROM resin/raspberrypi-node:latest
 
 # Get node source info
 #RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
@@ -25,7 +25,11 @@ RUN npm install -g --unsafe-perm homebridge-platform-wemo
 WORKDIR /root/.homebridge/
 
 # Copy
+COPY start.sh start.sh
 COPY config.json config.json
+
+# Execute permissions
+RUN chmod +x start.sh
 
 # Enable systemd init system in container
 ENV INITSYSTEM on
@@ -33,5 +37,5 @@ ENV INITSYSTEM on
 # Expose port
 EXPOSE 5353 51826
 
-# Exec homebridge
-CMD ["homebridge"]
+# Exec homebridge with persistent config
+CMD /bin/bash /root/.homebridge/start.sh
