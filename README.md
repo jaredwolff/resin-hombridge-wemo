@@ -1,11 +1,13 @@
-# resin-hombridge-wemo
-Resin Docker container preconfigured for Wemo operation.
+# balena-hombridge-wemo
+(Previously `resin-homebridge-wemo`)
 
-I'm currently running my setup on a Hummingboard but this can be adapted for any other type of board that they support. More info on what boards Resin supports and to download the image for the device you have go [here](https://resinos.io/#downloads).
+Balena Docker container preconfigured for Wemo operation.
 
-## Resin OS Instructions
+I'm currently running my setup on a Hummingboard but this can be adapted for any other type of board that they support. More info on what boards Balena supports and to download the image for the device you have go [here](https://www.balena.io/os/#download).
 
-Resin's documentation is awesome. Feel free to look at it [here](https://resinos.io/docs/cubox-i/gettingstarted/). Otherwise see below:
+## Balena OS Instructions
+
+Balena's documentation is awesome. Feel free to look at it [here](https://www.balena.io/os/docs/raspberrypi3/getting-started/). Otherwise see below:
 
 1. Install dependencies. On Mac, *Node* is the only thing you may need to install. Homebrew works best here.
 
@@ -13,15 +15,15 @@ Resin's documentation is awesome. Feel free to look at it [here](https://resinos
 brew install node
 ```
 
-1. Download and install the `resin-cli`:
+1. Download and install the `balena-cli`:
 
 ```
-npm install --global --production resin-cli
+npm install --global --production --unsafe-perm balena-cli
 ```
 
-1. Download your image from the [download link](https://resinos.io/#downloads) if you haven't already.
+1. Download your image from the [download link](https://www.balena.io/os/#download) if you haven't already.
 
-1. Modify the image to your liking by using the cli.
+2. Modify the image to your liking by using the cli.
 
 ```
 $ sudo resin local configure ~/Downloads/resin.img
@@ -57,12 +59,12 @@ PING resin.local (192.168.7.45): 56 data bytes
 
 1. Modify the `config.json` file to your liking. Highly suggest changing the pin to something different as this is the one that Homebridge uses in their examples.
 
-1. Also, feel free to modify the Dockerfile to match your needs. In this example the only thing that you may want to change is the image name. By default I have `hummingboard-node:latest` as the main image. More info about what’s available go [here](https://docs.resin.io/runtime/resin-base-images/).
+1. Also, feel free to modify the Dockerfile to match your needs. In this example the only thing that you may want to change is the image name. By default I have `hummingboard-node:latest` as the main image. More info about what’s available go [here](https://docs.balena.io/runtime/resin-base-images/).
 
 1. You can now push the included Homebridge Docker file and associated files directly to your embedded device.
 
 ```
-sudo resin local push resin.local --source .
+sudo balena local push balena.local --source .
 ```
 
 *Note: this will take several minutes as it will be building the docker image on the embedded device. This takes much less time using the Resin.io platoform as it builds on your local machine and then sent to the embedded device as a complete image*
@@ -87,9 +89,9 @@ rdt push completed successfully!
 [2017-11-2 02:09:43] [WeMo Platform] Initializing BelkinWeMo platform...
 Scan this code with your HomeKit App on your iOS device to pair with Homebridge:
 
-    ┌────────────┐     
-    │ 031-45-154 │     
-    └────────────┘     
+    ┌────────────┐
+    │ 031-45-154 │
+    └────────────┘
 
 [2017-11-2 02:09:43] Homebridge is running on port 51826.
 [2017-11-2 02:09:43] [WeMo Platform] Found: Master Den [123456789ABC]
